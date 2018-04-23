@@ -1,3 +1,14 @@
 p {
   color: blue;
 }
+
+a {
+  font-size: 50px;
+  font-family: inconsolata;
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
