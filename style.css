@@ -1,18 +1,43 @@
+/*
+INDEX
+*/
+
 .info-box {
   left: 0vw;
   width: 100vw;
   position: fixed;
-  height: 80px;
+  height: 100px;
   background-color: #fff;
   bottom: 0;
   z-index: 1000;
 }
 
 .info-text {
-  padding: 5px 30px 5px 0;
+  padding: 6px 30px 5px 10px;
 }
 
 .h1 {
   font-family: helvetica;
   font-size: 16pt;
+  color: grey;
 }
+
+a {
+  font-family: helvetica;
+  font-size: 16pt;
+  padding-right: 50px;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.link-box {
+  padding: 6px 30px 5px 10px;
+}
+
+/*
+PROJECTS
+*/

@@ -18,7 +18,7 @@ function init() {
 	camera.position.z = 3200;
 	scene = new THREE.Scene();
 	scene.background = new THREE.CubeTextureLoader()
-		.setPath( './' )
+		.setPath( './images/index/' )
 		.load( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );
 	let geometry = new THREE.TorusGeometry( 100, 30, 160, 100 );
 	let material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: scene.background } );
