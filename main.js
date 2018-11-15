@@ -1,6 +1,6 @@
 let container;
 let camera, scene, renderer;
-let mesh, lightMesh, torus, sphere;
+let torusMesh, sphereMesh, lightMesh, torus, sphere;
 let toruses = [];
 let spheres = [];
 let directionalLight, pointLight;
@@ -19,31 +19,30 @@ function init() {
 		.setPath( './images/index/' )
 		.load( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );
 
-// Geometries
-let torus = new THREE.TorusGeometry( 100, 30, 160, 100 );
-let sphere = new THREE.SphereGeometry(5,32,32);
+	// Geometries
+	let torus = new THREE.TorusGeometry( 100, 30, 160, 100 );
+	let sphere = new THREE.SphereGeometry(100,32,32);
 
-// toruses
-let material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: scene.background } );
-	for ( let i = 0; i < 20; i ++ ) {
-		let mesh = new THREE.Mesh( torus, material );
-		mesh.position.x = Math.random() * 10000 - 5000;
-		mesh.position.y = Math.random() * 10000 - 5000;
-		mesh.position.z = Math.random() * 10000 - 5000;
-		mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
-		scene.add( mesh );
-		toruses.push( mesh );
-}
-
-//spheres
-for ( let i = 0; i < 20; i ++ ) {
-	let sphereMesh = new THREE.Mesh( sphere, material );
-	sphereMesh.position.x = Math.random() * 10000 - 5000;
-	sphereMesh.position.y = Math.random() * 10000 - 5000;
-	sphereMesh.position.z = Math.random() * 10000 - 5000;
-	sphereMesh.scale.x = sphereMesh.scale.y = sphereMesh.scale.z = Math.random() * 3 + 1;
-	scene.add( sphereMesh );
-	spheres.push( sphereMesh );
+	// toruses
+	let material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: scene.background } );
+		for ( let i = 0; i < 50; i ++ ) {
+			let torusMesh = new THREE.Mesh( torus, material );
+			torusMesh.position.x = Math.random() * 10000 - 5000;
+			torusMesh.position.y = Math.random() * 10000 - 5000;
+			torusMesh.position.z = Math.random() * 10000 - 5000;
+			torusMesh.scale.x = torusMesh.scale.y = torusMesh.scale.z = Math.random() * 3 + 1;
+			scene.add( torusMesh );
+			toruses.push( torusMesh );
+	}
+	//spheres
+	for ( let i = 0; i < 50; i ++ ) {
+		let sphereMesh = new THREE.Mesh( sphere, material );
+		sphereMesh.position.x = Math.random() * 10000 - 5000;
+		sphereMesh.position.y = Math.random() * 10000 - 5000;
+		sphereMesh.position.z = Math.random() * 10000 - 5000;
+		sphereMesh.scale.x = sphereMesh.scale.y = sphereMesh.scale.z = Math.random() * 3 + 1;
+		scene.add( sphereMesh );
+		spheres.push( sphereMesh );
 }
 
 
@@ -62,11 +61,6 @@ function onWindowResize() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-function onDocumentMouseMove( event ) {
-	mouseX = ( event.clientX - windowHalfX ) * 10;
-	mouseY = ( event.clientY - windowHalfY ) * 10;
-}
-
 function animate() {
 	requestAnimationFrame( animate );
 	render();
@@ -78,6 +72,11 @@ function render() {
 		let torus = toruses[ i ];
 		torus.position.x = 5000 * Math.cos( timer + i );
 		torus.position.y = 5000 * Math.sin( timer + i * 1.1 );
+	}
+	for ( let i = 0, il = spheres.length; i < il; i ++ ) {
+		let sphere = spheres[ i ];
+		sphere.position.x = 5000 * Math.cos( timer + i );
+		sphere.position.y = 5000 * Math.sin( timer + i * 1.1 );
 	}
 	renderer.render( scene, camera );
 }
