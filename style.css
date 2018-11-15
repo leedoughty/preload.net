@@ -31,6 +31,12 @@ body {
   background-color: var(--yellow);
 }
 
+.item1 {
+  background-image: url("images/projects/1.jpg")
+}
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 let container;
 let camera, scene, renderer;
-let mesh, lightMesh, geometry;
+let mesh, lightMesh, torus;
 let spheres = [];
 let directionalLight, pointLight;
 let mouseX = 0;
@@ -8,7 +8,12 @@ let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+// let texture = new THREE.TextureLoader().load( "textures/water.jpg" );
+// texture.wrapS = THREE.RepeatWrapping;
+// texture.wrapT = THREE.RepeatWrapping;
+// texture.repeat.set( 4, 4 );
+
+// document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 init();
 animate();
 function init() {
@@ -20,10 +25,10 @@ function init() {
 	scene.background = new THREE.CubeTextureLoader()
 		.setPath( './images/index/' )
 		.load( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );
-	let geometry = new THREE.TorusGeometry( 100, 30, 160, 100 );
+	let torus = new THREE.TorusGeometry( 100, 30, 160, 100 );
 	let material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: scene.background } );
-	for ( let i = 0; i < 500; i ++ ) {
-		let mesh = new THREE.Mesh( geometry, material );
+	for ( let i = 0; i < 100; i ++ ) {
+		let mesh = new THREE.Mesh( torus, material );
 		mesh.position.x = Math.random() * 10000 - 5000;
 		mesh.position.y = Math.random() * 10000 - 5000;
 		mesh.position.z = Math.random() * 10000 - 5000;
