@@ -2,13 +2,70 @@
 INDEX
 */
 
+html {
+  box-sizing: border-box;
+}
+
 :root {
   --yellow: #ffc600;
 }
 
 body {
-  background-color: silver;
+  background-color: #f5f5f5;
+  font-family: sans-serif;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media all and (max-width: 500px) {
+  .wrapper {
+    margin-top: 5vh;
+  }
+  .bio {
+    padding: 5vh;
+  }
+  .top {
+    text-align: center;
+  }
+  .flex-nav {
+    position: sticky;
+    text-align: center;
+    margin: 5vh;
+    border: 1px red solid;
+  }
+  .images {
+    margin: 5vh;
+  }
+  img {
+    padding-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+    margin: 3vh;
+  }
+  .filter {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+
+
+
+
 
 
 
@@ -20,7 +77,7 @@ body {
 THREE.JS NAVIGATION
 */
 
-.info-box {
+/* .info-box {
   left: 0vw;
   width: 100vw;
   position: fixed;
@@ -54,4 +111,4 @@ a:hover {
 
 .link-box {
   padding: 6px 30px 5px 10px;
-}
+} */
